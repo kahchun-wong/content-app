@@ -4,7 +4,8 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxthq/studio',
-    'nuxt-primevue'
+    'nuxt-primevue',
+    '@nuxtjs/markdownit'
   ],
   content: {
     documentDriven: true
