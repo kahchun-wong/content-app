@@ -4,11 +4,15 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxthq/studio',
-    'nuxt-primevue',
-    '@nuxtjs/markdownit'
+    'nuxt-primevue'
   ],
   content: {
-    documentDriven: true
+    documentDriven: true,
+    markdown: {
+      remarkPlugins: {
+        'remark-directive': {}
+      }
+    }
   },
   css: ['primevue/resources/themes/aura-light-green/theme.css']
 })
