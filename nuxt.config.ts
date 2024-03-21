@@ -6,5 +6,8 @@ export default defineNuxtConfig({
     '@nuxthq/studio',
     'nuxt-primevue'
   ],
+  content: {
+    documentDriven: true
+  },
   css: ['primevue/resources/themes/aura-light-green/theme.css']
 })
