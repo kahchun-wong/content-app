@@ -5466,11 +5466,6 @@ rehype-sort-attributes@^5.0.0:
     "@types/hast" "^3.0.0"
     unist-util-visit "^5.0.0"
 
-remark-container@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/remark-container/-/remark-container-0.1.2.tgz#02a54ed7b44365d863bcf31a672d397f9db3d8ac"
-  integrity sha512-E+G7dSALm3aMqyi15N4DxnRFQmBbHwxVc+9GrbijqwbdHzagUDvi2A3oI27y/PwLkSDRjwMfoc1rCIZayZ2PFg==
-
 remark-emoji@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/remark-emoji/-/remark-emoji-4.0.1.tgz#671bfda668047689e26b2078c7356540da299f04"
