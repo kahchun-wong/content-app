@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     documentDriven: true,
     markdown: {
       remarkPlugins: {
-        'remark-directive': {}
+        'remark-container': {}
       }
     }
   },
