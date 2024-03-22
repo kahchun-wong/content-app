@@ -1,29 +1,11 @@
-# Introduction
-
 # Overview
 
-Fasstap™ enables merchant to accept contactless payment card transactions without the need of any external hardware for
-example Electronic Data Capture (EDC), PIN Entry Device (PED) or Secure Card Reader (SCR). It uses Near Field
-Communication (NFC) channel to transact with end user's payment card.
+Fasstap™ enables merchant to accept contactless payment card transactions without the need of any external hardware for example Electronic Data Capture (EDC), PIN Entry Device (PED) or Secure Card Reader (SCR). It uses Near Field Communication (NFC) channel to transact with end user's payment card.
 
-Soft Space provides Fasstap™ SDK to enable third party application to integrate and enable Fasstap™ payment process. The
-integration includes also the connectivity with the Soft Space back-end services to perform mandatory security checking
-on the devices and components. Upon successful integration, the application would be able to accept contactless payment
-transaction seamlessly.
+Soft Space provides Fasstap™ SDK to enable third party application to integrate and enable Fasstap™ payment process. The integration includes also the connectivity with the Soft Space back-end services to perform mandatory security checking
+on the devices and components. Upon successful integration, the application would be able to accept contactless payment transaction seamlessly.
 
-\::: note Supported Payment Methods
-![](/assets/img/schemes/img_jcb.svg)
-!\[]\(/assets/img/schemes/img\_visa.svg =x35)
-!\[]\(/assets/img/schemes/img\_mastercard.svg =x32)
-!\[]\(/assets/img/schemes/img\_upi.svg =x30)
-!\[]\(/assets/img/schemes/img\_diners.svg =x30)
-!\[]\(/assets/img/schemes/img\_discover.svg =x30)
-!\[]\(/assets/img/schemes/img\_amex.svg =48x30)
-!\[]\(/assets/img/schemes/img\_eftpos.svg =x30)
-!\[]\(/assets/img/schemes/img\_mada.svg =x26)
-!\[]\(/assets/img/schemes/img\_napas.svg =x22)
-!\[]\(/assets/img/schemes/img\_mydebit.svg =x22)
-\:::
+Supported Payment Methods\:br![](/assets/img/schemes/img_jcb.svg)![](/assets/img/schemes/img_visa.svg){style="height: 35px"}![](/assets/img/schemes/img_mastercard.svg){style="height: 32px"}![](/assets/img/schemes/img_upi.svg){style="height: 30px"}![](/assets/img/schemes/img_diners.svg){style="height: 30px"}![](/assets/img/schemes/img_discover.svg){style="height: 30px"}![](/assets/img/schemes/img_amex.svg){style="width: 48px; height: 30px"}![](/assets/img/schemes/img_eftpos.svg){style="height: 30px"}![](/assets/img/schemes/img_mada.svg){style="height: 26px"}![](/assets/img/schemes/img_napas.svg){style="height: 22px"}![](/assets/img/schemes/img_mydebit.svg){style="height: 22px"}
 
 \::: note Supported OS
 **Android 11.0** and above
