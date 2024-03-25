@@ -1,7 +1,7 @@
 /**
  * Defines valid properties of Container component
  */
-interface ContainerProps {
+ export interface ContainerProps {
     /**
      * Type of the container,
      * bounded to "note", "warning", and "error".

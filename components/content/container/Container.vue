@@ -3,7 +3,7 @@
         <div class="ss-container-wrapper">
             <p class="ss-container-header">
                 <slot name="container-icon" class="ss-container-icon">
-                    <span :class="icon ? icon : defaultIcon"></span>
+                    <i :class="icon ? icon : defaultIcon"></i>
                 </slot>
                 <slot name="container-title" class="ss-container-title">
                     <span>{{ title ? title : defaultTitle }}</span>
@@ -15,6 +15,8 @@
 </template>
 
 <script setup lang="ts">
+    import type { ContainerProps } from './Container'
+
     const props = withDefaults(defineProps<ContainerProps>(), {
         type: 'note'
     })
