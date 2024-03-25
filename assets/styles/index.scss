@@ -1,13 +1,20 @@
-@import "./components/heading.scss";
-@import "./components/page-header.scss";
+@import "./common/heading.scss";
+@import "./common/link.scss";
+@import "./page/page.scss";
+@import "./page/page-header.scss";
+@import "./page/page-body.scss";
 @import "./components/container.scss";
+
+html { scroll-behavior: smooth; }
 
 body {
     color: var(--text-color);
+    font-size: 1rem;
 }
 
 .scheme-img p {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 1rem;
 }
