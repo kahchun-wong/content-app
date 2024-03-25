@@ -1,7 +1,7 @@
 .ss-container {
     margin: 1rem 0;
     backdrop-filter: blur(1.5px);
-    border-width: 5px;
+    border-left: 5px solid;
 }
 
 .ss-container-wrapper {
@@ -9,6 +9,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    gap: .5rem;
 }
 
 .ss-container-header {
@@ -16,22 +17,22 @@
 }
 
 .ss-container-icon {
-    margin-right: 1rem;
+    margin-right: .5rem;
 }
 
 .ss-container-note {
     background: rgba(241, 245, 249, .5);
-    border-left: solid var(--gray-400);
+    border-color: var(--gray-400);
 }
 
 .ss-container-warning {
     background: rgba(250, 237, 196, .5);
-    border-left: solid var(--yellow-400);
-    color: var(--yellow-700);
+    border-color: var(--yellow-400);
+    color: var(--yellow-800);
 }
 
 .ss-container-error {
     background: rgba(255, 208, 206, .5);
-    border-left: solid var(--red-400);
-    color: var(--red-700);
+    border-color: var(--red-400);
+    color: var(--red-800);
 }
