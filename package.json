@@ -15,6 +15,7 @@
   },
   "devDependencies": {
     "@nuxthq/studio": "^1.0.13",
-    "nuxt-primevue": "^0.3.1"
+    "nuxt-primevue": "^0.3.1",
+    "sass": "^1.72.0"
   }
 }

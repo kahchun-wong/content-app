@@ -1,0 +1,37 @@
+.ss-container {
+    margin: 1rem 0;
+    backdrop-filter: blur(1.5px);
+    border-width: 5px;
+}
+
+.ss-container-wrapper {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.ss-container-header {
+    font-weight: 500;
+}
+
+.ss-container-icon {
+    margin-right: 1rem;
+}
+
+.ss-container-note {
+    background: rgba(241, 245, 249, .5);
+    border-left: solid var(--gray-400);
+}
+
+.ss-container-warning {
+    background: rgba(250, 237, 196, .5);
+    border-left: solid var(--yellow-400);
+    color: var(--yellow-700);
+}
+
+.ss-container-error {
+    background: rgba(255, 208, 206, .5);
+    border-left: solid var(--red-400);
+    color: var(--red-700);
+}

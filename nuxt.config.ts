@@ -10,6 +10,7 @@ export default defineNuxtConfig({
     documentDriven: true,
   },
   css: [
+    './assets/styles/index.scss',
     'primevue/resources/themes/aura-light-green/theme.css',
     'primeicons/primeicons.css'
   ]
