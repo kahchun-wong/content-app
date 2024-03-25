@@ -10,6 +10,7 @@
   "dependencies": {
     "@nuxt/content": "^2.12.1",
     "nuxt": "^3.11.0",
+    "primeicons": "^6.0.1",
     "primevue": "^3.50.0"
   },
   "devDependencies": {
