@@ -1,4 +1,10 @@
+@import "./components/heading.scss";
+@import "./components/page-header.scss";
 @import "./components/container.scss";
+
+body {
+    color: var(--text-color);
+}
 
 .scheme-img p {
     display: flex;
