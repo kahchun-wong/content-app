@@ -11,8 +11,8 @@
     padding-top: 1rem;
 }
 
-.ss-page-header-title > .ss-page-header-description {
-    padding-bottom: 1rem;
+.ss-page-header-title + .ss-page-header-description {
+    padding-top: .5rem;
 }
 
 .ss-page-header-title h1 {
