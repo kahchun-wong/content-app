@@ -1,0 +1,1 @@
+import{l as s,b as o,c as t,J as c}from"./Crt-jhfp.js";const n={},r={class:"ss-page-body"};function _(e,a){return o(),t("div",r,[c(e.$slots,"default")])}const d=s(n,[["render",_]]);export{d as default};
