@@ -14,7 +14,12 @@
     "primevue": "^3.50.0"
   },
   "devDependencies": {
+    "@apidevtools/swagger-parser": "^10.1.0",
     "@nuxthq/studio": "^1.0.13",
+    "@nuxtjs/google-fonts": "^3.2.0",
+    "js-yaml": "^4.1.0",
+    "markdown-it": "^14.1.0",
+    "nuxt-icon": "^0.6.10",
     "nuxt-primevue": "^0.3.1",
     "sass": "^1.72.0"
   }

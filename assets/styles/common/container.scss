@@ -1,7 +1,8 @@
 .ss-container {
     margin: 1rem 0;
     backdrop-filter: blur(1.5px);
-    border-left: 5px solid;
+    border: 1px solid;
+    border-radius: .5rem;
 }
 
 .ss-container-wrapper {
@@ -10,9 +11,12 @@
     flex-direction: column;
     align-items: flex-start;
     gap: .5rem;
+    font-size: var(--content-font-size);
 }
 
 .ss-container-header {
+    display: flex;
+    align-items: center;
     font-weight: 500;
 }
 
@@ -22,17 +26,17 @@
 
 .ss-container-note {
     background: rgba(241, 245, 249, .5);
-    border-color: var(--primary-400);
+    border-color: var(--gray-200);
 }
 
 .ss-container-warning {
     background: rgba(250, 237, 196, .5);
-    border-color: var(--yellow-400);
+    border-color: var(--yellow-200);
     color: var(--yellow-800);
 }
 
 .ss-container-error {
     background: rgba(255, 208, 206, .5);
-    border-color: var(--red-400);
+    border-color: var(--red-200);
     color: var(--red-800);
 }

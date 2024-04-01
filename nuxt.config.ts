@@ -4,10 +4,28 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxthq/studio',
-    'nuxt-primevue'
+    'nuxt-primevue',
+    'nuxt-icon'
   ],
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth'
+    }
+  },
   content: {
     documentDriven: true,
+    experimental: {
+      search: true
+    },
+    navigation: {
+      fields: [ 'description' ]
+    },
+    markdown: {
+      toc: {
+        depth: 3,
+        searchDepth: 3
+      }
+    }
   },
   css: [
     './assets/styles/index.scss',

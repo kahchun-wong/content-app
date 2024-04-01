@@ -7,3 +7,9 @@ a {
         border-bottom: 1px solid var(--primary-color);
     }
 }
+
+a:has(button) {
+    &:hover {
+        border-bottom: none;
+    }
+}

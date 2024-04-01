@@ -1,8 +1,15 @@
 <template>
   <DocsPage v-slot="{ doc }">
-    <PageHeader :title="doc.title" :description="doc.description" />
+    <PageHeader/>
     <PageBody>
       <ContentRenderer :value="doc" />
     </PageBody>
+    <PageSurroundNav />
   </DocsPage>
 </template>
+
+<script setup lang="ts">
+  definePageMeta({
+    layout: 'docs'
+  })
+</script>

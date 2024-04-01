@@ -1,0 +1,15 @@
+.expand-toggle {
+    display: flex;
+    align-items: center;
+    transition: all 0.25s;
+    color: var(--text-color);
+
+    svg {
+        width: var(--content-font-size);
+        height: var(--content-font-size);
+    }
+
+    &.expanded {
+        transform: rotate(90deg);
+    }
+}

@@ -1,0 +1,117 @@
+.ss-toc {
+    grid-column: span 10 / span 10;
+    order: -9999;
+    padding: 0 1rem;
+    max-height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
+}
+
+@media (min-width: 1024px) {
+    .ss-toc {
+        grid-column: span 2 / span 2;
+        order: 9999;
+        position: sticky;
+        top: var(--navbar-height);
+    }
+}
+
+.ss-toc-wrapper {
+    padding: 1rem 0;
+    border-bottom: 1px dashed var(--border-color);
+    font-size: var(--content-font-size);
+}
+
+@media (min-width: 1024px) {
+    .ss-toc-wrapper {
+        padding: 2rem 0;
+        border-bottom: none;
+        font-size: var(--toc-font-size);
+    }
+}
+
+.ss-toc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding: 0;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+@media (min-width: 1024px) {
+    .ss-toc-header {
+        cursor: default;
+        user-select: none;
+
+        .expand-toggle {
+            display: none;
+        }
+    }
+}
+
+.ss-toc-header-title {
+    line-height: 1.75;
+    font-size: var(--content-font-size);
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+@media (min-width: 1024px) {
+    .ss-toc-header-title {
+        font-size: var(--toc-font-size);
+        font-weight: 500;
+        color: var(--text-color);
+    }
+}
+
+.ss-toc-links {
+    list-style: none;
+    margin: 0;
+    margin-top: 1rem;
+    padding: 0;
+    padding-left: .5rem;
+    border-left: 2px solid var(--border-color);
+
+    &.hidden {
+        display: none;
+    }
+
+    &.children {
+        margin-top: 0;
+        border: none;
+    }
+}
+
+@media (min-width: 1024px) {
+    .ss-toc-links {
+        &.hidden {
+            display: block;
+        }
+    }
+}
+
+.ss-toc-link {
+    display: block;
+    color: var(--text-color-secondary);
+    font-weight: normal;
+    line-height: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    &.active {
+        color: var(--primary-color);
+
+        &:hover {
+            color: var(--primary-color);
+        }
+    }
+
+    &:hover {
+        border: none;
+        color: var(--text-color);
+    }
+}

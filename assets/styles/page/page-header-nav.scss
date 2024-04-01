@@ -1,0 +1,33 @@
+.ss-page-nav {
+    margin-bottom: 1rem;
+    padding: 0;
+    font-size: var(--nav-font-size);
+
+    .ss-page-nav-link {
+        color: var(--text-color-secondary);
+        border: none;
+
+        &.router-link-active {
+            font-weight: 500;
+            color: var(--primary-color);
+
+            &:hover {
+                color: var(--primary-color);
+            }
+        }
+
+        &:hover {
+            color: var(--text-color);
+        }
+    }
+
+    .p-menuitem-separator {
+        color: var(--text-color-secondary);
+
+        .p-icon {
+            width: .75rem;
+            height: .75rem;
+        }
+    }
+    
+}
