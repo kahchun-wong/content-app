@@ -2,15 +2,22 @@
     justify-content: space-between;
     align-items: center;
     gap: .5rem;
-    padding: .5rem;
+    padding: .25rem .5rem;
     background: transparent;
-    border: 1px solid var(--border-color);
+    border: none;
     font-size: .75rem;
     color: var(--text-color-secondary);
 
     &:hover {
         border-color: var(--primary-color);
         color: var(--text-color);
+    }
+}
+
+@media (min-width: 1024px) {
+    .ss-search-button {
+        background: var(--gray-50);
+        border: 1px solid var(--border-color);
     }
 }
 
@@ -34,6 +41,10 @@
         display: inline-flex;
         gap: .15rem;
     }
+}
+
+.p-dialog-mask:has(.ss-search-dialog) {
+    z-index: 2104!important;
 }
 
 .p-dialog:has(.ss-search-dialog) {
@@ -63,6 +74,8 @@
 }
 
 .ss-search-input {
+    display: inline-flex;
+    align-items: center;
     width: 100%;
 }
 
@@ -73,7 +86,6 @@
 .ss-search-input input {
     height: 3rem;
     width: 100%;
-    padding-left: 2rem;
     border: none;
     outline: none;
     background: transparent;

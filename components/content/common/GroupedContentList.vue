@@ -3,11 +3,11 @@
         <div v-for="group in contentList" class="ss-content-group">
             <p class="ss-content-group-title">{{ group.title }}</p>
             <div v-for="item in group.children" class="ss-content-item">
-                <NuxtLink class="ss-content-item-link" :to="item._path" @click="selected">
+                <FaasNuxtLink class="ss-content-item-link" :to="item._path" @click="selected">
                     <Icon class="ss-content-item-icon" :name="item.icon ?? 'solar:document-text-bold'" />
                     <span class="ss-content-item-title">{{ item.title }}</span>
                     <span class="ss-content-item-description">{{ item.description }}</span>
-                </NuxtLink>
+                </FaasNuxtLink>
             </div>
         </div>
     </div>

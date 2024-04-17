@@ -1,0 +1,51 @@
+.ss-api-panel-sample-container {
+    border-radius: 8px;
+    background-color: var(--gray-700);
+}
+
+.ss-api-sample-panel-wrapper {
+    background: var(--gray-600);
+    padding: 1.5rem 1rem;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+.ss-api-panel-sample-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: 4rem;
+}
+
+.ss-api-panel-sample-title {
+    color: var(--gray-100);
+    font-size: var(--font-size-s);
+}
+
+.ss-sample-tabs-nav {
+    overflow-x: auto;
+    white-space: nowrap;
+    transition: background-color var(--color-transition, .3s ease);
+}
+
+.ss-sample-tabs-nav-item {
+    position: relative;
+    padding: .5em 1em;
+    border-width: 0;
+    border-radius: 8px 8px 0 0;
+    min-width: 4rem;
+    background-color: transparent;
+    color: var(--gray-100);
+    font-weight: 500;
+    font-size: var(--font-size-xs);
+    line-height: 1.75;
+    cursor: pointer;
+    transition: background-color var(--color-transition, .3s ease), color var(--color-transition, .3s ease);
+
+    &.active {
+        background-color: var(--gray-600);
+    }
+}

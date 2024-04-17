@@ -2,9 +2,9 @@
     <div class="ss-page-header">
         <PageHeaderNav />
         <div class="ss-page-header-title">
-            <i v-if="page.icon" :class="page.icon"></i>
+            <Icon v-if="page.icon" :name="page.icon" />
             <h1>{{ page.title }}</h1>
-            <Tag value="v1.0.0" rounded />
+            <VersionDropdown v-if="page.product" :product="page.product" />
         </div>
         <p v-if="page.description" class="ss-page-header-description">
             {{ page.description }}

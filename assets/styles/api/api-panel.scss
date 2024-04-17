@@ -1,0 +1,51 @@
+.ss-api-panel {
+    display: grid;
+    grid-template-columns: repeat(10,minmax(0,1fr));
+    gap: 2rem;
+}
+
+.ss-api-panel:not(:last-child) {
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed var(--border-color);
+}
+
+.ss-api-panel-content {
+    grid-column: span 10 / span 10;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .ss-api-panel-content {
+        grid-column: span 6 / span 6;
+    }
+}
+
+.ss-api-panel-description {
+    overflow-x: auto;
+}
+
+.ss-api-panel-description p {
+    margin: .5rem 0 0 0;
+
+    &:first-of-type {
+        margin: 0;
+    }
+}
+
+.ss-api-panel-sample {
+    grid-column: span 10 / span 10;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+    .ss-api-panel-sample {
+        position: sticky;
+        top: calc(var(--navbar-height) + 2rem);
+        align-self: self-start;
+        grid-column: span 4 / span 4;
+    }
+}

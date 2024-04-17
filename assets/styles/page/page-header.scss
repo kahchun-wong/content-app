@@ -7,8 +7,13 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 1rem;
+    gap: .5rem;
     padding-top: 1rem;
+}
+
+.ss-page-header-title .ss-icon {
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 .ss-page-header-title + .ss-page-header-description {

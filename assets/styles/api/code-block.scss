@@ -1,0 +1,68 @@
+.ss-code-block-wrapper {
+    position: relative;
+}
+
+.ss-code-block {
+    background: var(--gray-700);
+    padding: 2rem 0;
+    border-radius: 8px;
+    overflow-x: auto;
+
+    &::-webkit-scrollbar {
+        height: .6rem;
+    }
+    
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--primary-color);
+        border-radius: 8px;
+    }
+    
+    &::-webkit-scrollbar-track {
+        background-color: var(--gray-800);
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+}
+
+.ss-code-block pre {
+    margin: 0;
+    font-size: var(--font-size-xs);
+}
+
+.ss-code-block pre code {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    display: inline-block;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+.ss-code-block .line::before {
+    content: attr(line);
+    display: inline-block;
+    position: sticky;
+    left: 0;
+    padding: 0 1rem;
+    margin-right: .5rem;
+    background: var(--gray-700);
+    color: var(--gray-400);
+}
+
+.ss-copy-button {
+    position: absolute;
+    right: 0;
+    margin: .75rem 1rem 0 0;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    background: transparent;
+    color: var(--gray-100);
+    cursor: pointer;
+
+    .ss-icon {
+        width: var(--font-size-s);
+        height: var(--font-size-s);
+    }
+}

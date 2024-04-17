@@ -1,0 +1,29 @@
+.ss-http-method-tag {
+    padding: .25rem .5rem;
+}
+
+.ss-http-method-tag .p-tag-value {
+    line-height: normal;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.ss-http-method-tag.post {
+    background-color: var(--green-100);
+    color: var(--green-800);
+}
+
+.ss-http-method-tag.put {
+    background-color: var(--yellow-100);
+    color: var(--yellow-800);
+}
+
+.ss-http-method-tag.get {
+    background-color: var(--cyan-100);
+    color: var(--cyan-800);
+}
+
+.ss-http-method-tag.delete {
+    background-color: var(--red-100);
+    color: var(--red-800);
+}

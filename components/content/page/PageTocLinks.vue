@@ -1,12 +1,12 @@
 <template>
     <ul v-if="links" class="ss-toc-links">
         <li v-for="link in links" :key="link.text">
-            <NuxtLink class="ss-toc-link"
+            <FaasNuxtLink class="ss-toc-link"
                       :class="{ 'active': activeHash.includes(link.id) }" 
                       :to="`#${link.id}`"
             >
                 {{ link.text }}
-            </NuxtLink>
+            </FaasNuxtLink>
             <PageTocLinks v-if="link.children && depth > 0" 
                             class="ss-toc-links children" 
                             :links="link.children" 
@@ -49,9 +49,9 @@
         document
             .querySelectorAll('.ss-page h2[id], .ss-page h3[id], .ss-page h4[id], .ss-page h5[id], .ss-page h6[id]')
             .forEach((section) => observer.value?.observe(section))
-    });
+    })
 
     onUnmounted(() => {
         observer.value?.disconnect()
-    });
+    })
 </script>

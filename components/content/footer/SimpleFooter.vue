@@ -21,22 +21,22 @@
             <div class="ss-footer-end">
                 <slot name="end">
                     <div class="ss-footer-links">
-                        <NuxtLink v-if="appConfig.footer.email" :to="`mailto:${appConfig.footer.email}`">
+                        <FaasNuxtLink v-if="appConfig.footer.email" :to="`mailto:${appConfig.footer.email}`">
                             <Button class="ss-footer-button" outlined>
                                 <Icon name="material-symbols:mail" />
                             </Button>
-                        </NuxtLink>
-                        <NuxtLink v-if="appConfig.footer.phone" :to="`tel:${appConfig.footer.phone}`">
+                        </FaasNuxtLink>
+                        <FaasNuxtLink v-if="appConfig.footer.phone" :to="`tel:${appConfig.footer.phone}`">
                             <Button class="ss-footer-button" outlined>
                                 <Icon name="material-symbols:call" />
                             </Button>
-                        </NuxtLink>
-                        <NuxtLink v-if="appConfig.footer.website" :to="appConfig.footer.website">
+                        </FaasNuxtLink>
+                        <FaasNuxtLink v-if="appConfig.footer.website" :to="appConfig.footer.website">
                             <Button class="ss-footer-button" outlined>
                                 <Icon name="mdi:web" />
                             </Button>
-                        </NuxtLink>
-                        </div>
+                        </FaasNuxtLink>
+                    </div>
                 </slot>
             </div>
         </div>

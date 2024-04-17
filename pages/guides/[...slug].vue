@@ -10,6 +10,6 @@
 
 <script setup lang="ts">
   definePageMeta({
-    layout: 'docs'
+    layout: 'guide'
   })
 </script>

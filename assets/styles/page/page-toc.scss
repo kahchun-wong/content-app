@@ -25,7 +25,7 @@
     .ss-toc-wrapper {
         padding: 2rem 0;
         border-bottom: none;
-        font-size: var(--toc-font-size);
+        font-size: var(--font-size-xs);
     }
 }
 
@@ -61,7 +61,7 @@
 
 @media (min-width: 1024px) {
     .ss-toc-header-title {
-        font-size: var(--toc-font-size);
+        font-size: var(--font-size-xs);
         font-weight: 500;
         color: var(--text-color);
     }

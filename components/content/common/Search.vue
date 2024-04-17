@@ -1,7 +1,7 @@
 <template>
     <ClientOnly>
         <Button class="ss-search-button" @click="openSearchDialog">
-            <span class="ss-search-button-icon pi pi-search"></span>
+            <Icon class="ss-search-button-icon" name="prime:search" />
             <span class="ss-search-button-label">Search...</span>
             <span class="ss-search-button-shortcut">
                 <Kbd>/</Kbd>
@@ -10,10 +10,10 @@
 
         <Dialog class="ss-search-dialog" v-model:visible="visible" :draggable="false" modal dismissableMask>
             <template #header>
-                <IconField class="ss-search-input" icon-position="left">
-                    <InputIcon class="pi pi-search"></InputIcon>
+                <div class="ss-search-input">
+                    <Icon name="prime:search" />
                     <InputText v-model="search" placeholder="Search..." autofocus></InputText>
-                </IconField>
+                </div>
             </template>
             <GroupedContentList v-if="search.length == 0" :contents="navigation" @selected="closeSearchDialog" />
             <SearchResults v-else :model="results" @selected="closeSearchDialog" />      
