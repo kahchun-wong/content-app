@@ -73,7 +73,6 @@
         }
     }
     const navigationItems = ref(await Promise.all((useAppConfig().navbar?? []).map(async (navItem) => await mapMenuItem(navItem))))
-    console.log(navigationItems.value)
 
     const atTop = ref(true)
     const checkScrollPositionAtTop = () => {

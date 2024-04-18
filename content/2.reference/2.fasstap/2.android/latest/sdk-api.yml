@@ -400,7 +400,7 @@ apis:
     description: |
           Instruct Fasstap™ MPOS SDK to start a transaction with the `MPOSTransactionParams`. This will make Fasstap™ MPOS SDK starts listening to NFC events and the card events (like user tapped card, or timeout occurs) will be reflected with `onTransactionUIEvent` method in `TransactionEvents`. 
           
-          Various transaction events that requires main project to handle the implementation will take place under `TransactionEvents` interface too. For more information regarding `TransactionEvents`, please refer to [MPOSTransaction.TransactionEvents](#mpostransaction-transactionevents) 
+          Various transaction events that requires main project to handle the implementation will take place under `TransactionEvents` interface too. For more information regarding `TransactionEvents`, please refer to [MPOSTransaction.TransactionEvents](#mpostransactiontransactionevents) 
           
           Eventhough Fasstap™ MPOS SDK handles the NFC events itself, it does not render any UI that instructs user to tap card on the phone. Prompting user with proper tap card UI before calling `startTransaction` is strongly recommended.
     method:
@@ -411,10 +411,10 @@ apis:
         description: The activity that starts the transaction. Please note that Activity class instance is required here instead of plain context.
         type: Activity
       - name: trxParams
-        description: The parameters for this transaction like amount. For more information, please refer to [MPOSTransactionParams](#mpostransactionparams-builder).
+        description: The parameters for this transaction like amount. For more information, please refer to [MPOSTransactionParams](#mpostransactionparamsbuilder).
         type: MPOSTransactionParams
       - name: callback
-        description: The callback implementation class for various transactional and card events. Please refer to [MPOSTransaction.TransactionEvents](#mpostransaction-transactionevents).
+        description: The callback implementation class for various transactional and card events. Please refer to [MPOSTransaction.TransactionEvents](#mpostransactiontransactionevents).
         type: TransactionEvents
     returnValue:
       - type: Boolean
@@ -503,7 +503,7 @@ apis:
     description: |
         Instruct Fasstap™ MPOS SDK to start a QR transaction with the `MPOSTransactionParams`. This will generate a QR related response in `TransactionOutcome`. 
     
-        Various transaction events that requires main project to handle the implementation will take place under `TransactionEvents` interface too. For more information regarding `TransactionEvents`, please refer to [MPOSTransaction.TransactionEvents](#mpostransaction-transactionevents).
+        Various transaction events that requires main project to handle the implementation will take place under `TransactionEvents` interface too. For more information regarding `TransactionEvents`, please refer to [MPOSTransaction.TransactionEvents](#mpostransactiontransactionevents).
     method:
       lang: java
       code: startQRTransaction(Activity context, MPOSTransactionParams trxParams, TransactionEvents callback)
@@ -512,10 +512,10 @@ apis:
         description: The activity that starts the transaction. Please note that Activity class instance is required here instead of plain context.
         type: Activity
       - name: trxParams
-        description: The parameters for this transaction like amount & QR Type. For more information, please refer to [MPOSTransactionParams](#mpostransactionparams-builder).
+        description: The parameters for this transaction like amount & QR Type. For more information, please refer to [MPOSTransactionParams](#mpostransactionparamsbuilder).
         type: MPOSTransactionParams
       - name: callback
-        description: The callback implementation class for various transactional and card events. Please refer to [MPOSTransaction.TransactionEvents](#mpostransaction-transactionevents).
+        description: The callback implementation class for various transactional and card events. Please refer to [MPOSTransaction.TransactionEvents](#mpostransactiontransactionevents).
         type: TransactionEvents
     returnValue:
       - type: Boolean
@@ -856,7 +856,7 @@ apis:
       code: onTransactionResult(int result, TransactionOutcome transactionOutcome)
     parameters:
       - name: result
-        description: Result of processing transaction returned by the transaction-processing kernel. For more information about possible result, please refer to [Transaction.TransactionEvents.TransactionResult](#transaction-transactionevents-transactionresult).
+        description: Result of processing transaction returned by the transaction-processing kernel. For more information about possible result, please refer to [Transaction.TransactionEvents.TransactionResult](#transactiontransactioneventstransactionresult).
         type: int
       - name: transactionOutcome
         description: The transaction outcome object that carries status and details.
@@ -871,7 +871,7 @@ apis:
       code: onTransactionUIEvent(int uiEvent)
     parameters:
       - name: uiEvent
-        description: The event code that raised the UI event. Please refer to [Transaction.TransactionEvents.TransactionUIEvent](#transaction-transactionevents-transactionuievent) for more information.
+        description: The event code that raised the UI event. Please refer to [Transaction.TransactionEvents.TransactionUIEvent](#transactiontransactioneventstransactionuievent) for more information.
         type: int
   Transaction.TransactionEvents.TransactionUIEvent:
     tags:
