@@ -1,15 +1,14 @@
 <template>
-    <DocsPage v-slot="{ doc }">
+    <DefaultPage v-slot="{ doc }">
         <PageHeader/>
         <PageBody>
             <ContentRenderer :value="doc" />
         </PageBody>
-        <PageSurroundNav />
-    </DocsPage>
+    </DefaultPage>
 </template>
 
 <script setup lang="ts">
     definePageMeta({
-        layout: 'guide'
+        layout: 'default'
     })
 </script>

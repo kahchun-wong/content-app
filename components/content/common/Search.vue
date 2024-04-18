@@ -1,24 +1,22 @@
 <template>
-    <ClientOnly>
-        <Button class="ss-search-button" @click="openSearchDialog">
-            <Icon class="ss-search-button-icon" name="prime:search" />
-            <span class="ss-search-button-label">Search...</span>
-            <span class="ss-search-button-shortcut">
-                <Kbd>/</Kbd>
-            </span>
-        </Button>
+    <Button class="ss-search-button" @click="openSearchDialog">
+        <Icon class="ss-search-button-icon" name="prime:search" />
+        <span class="ss-search-button-label">Search...</span>
+        <span class="ss-search-button-shortcut">
+            <Kbd>/</Kbd>
+        </span>
+    </Button>
 
-        <Dialog class="ss-search-dialog" v-model:visible="visible" :draggable="false" modal dismissableMask>
-            <template #header>
-                <div class="ss-search-input">
-                    <Icon name="prime:search" />
-                    <InputText v-model="search" placeholder="Search..." autofocus></InputText>
-                </div>
-            </template>
-            <GroupedContentList v-if="search.length == 0" :contents="navigation" @selected="closeSearchDialog" />
-            <SearchResults v-else :model="results" @selected="closeSearchDialog" />      
-        </Dialog>
-    </ClientOnly>
+    <Dialog class="ss-search-dialog" v-model:visible="visible" :draggable="false" modal dismissableMask>
+        <template #header>
+            <div class="ss-search-input">
+                <Icon name="prime:search" />
+                <InputText v-model="search" placeholder="Search..." autofocus></InputText>
+            </div>
+        </template>
+        <GroupedContentList v-if="search.length == 0" :contents="navigation" @selected="closeSearchDialog" />
+        <SearchResults v-else :model="results" @selected="closeSearchDialog" />      
+    </Dialog>
 </template>
 
 <script setup lang="ts"> 
