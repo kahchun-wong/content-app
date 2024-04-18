@@ -6,7 +6,7 @@ import markdownTransformer from '~/modules/markdown-transformer/markdownTransfor
 
 export default defineTransformer({
     name: 'api-parser-transformer',
-    extensions: ['.yml', 'yaml'], 
+    extensions: ['.md'], 
     async parse (_id, content) {
         const parseContent = (content: any) => {
             const match = String(content)?.match(/^---([\s\S]*?)---([\s\S]*)/)
@@ -18,30 +18,30 @@ export default defineTransformer({
             return [ , content ]
         }
 
-        const parseToMarkdownContent = (frontmatter: string, parsedContent: string) => {
+        const parseToMarkdownContent = (content: any) => {
             return markdownTransformer.parse
-                ? markdownTransformer.parse(_id, frontmatter + parsedContent, {})
+                ? markdownTransformer.parse(_id, content, {})
                 : <ParsedContent> { body: content }
         }
 
-        const parseToDefaultYamlContent = (content: any) => {
-            return yamlTransformer.parse
-                ? yamlTransformer.parse(_id, content, {})
-                : <ParsedContent> { body: content }
-        }
+        // const parseToDefaultYamlContent = (content: any) => {
+        //     return yamlTransformer.parse
+        //         ? yamlTransformer.parse(_id, content, {})
+        //         : <ParsedContent> { body: content }
+        // }
         
         const [ frontmatter, yamlContent ] = parseContent(content)
         
         if (!isValidApiYaml(yamlContent)) {
-            return parseToDefaultYamlContent(yamlContent)
+            return parseToMarkdownContent(content)
         }
 
         return await parseApiYaml(yamlContent)
-            .then((parsedContent) => parseToMarkdownContent(frontmatter, parsedContent))
+            .then((parsedContent) => parseToMarkdownContent((frontmatter?? '') + parsedContent))
             .catch((err) => {
                 console.error(err)
                 console.warn("Failed to parse API YAML, fallback to default YAML parser.")
-                return parseToDefaultYamlContent(yamlContent)
+                return parseToMarkdownContent(content)
             })
     }
 })
