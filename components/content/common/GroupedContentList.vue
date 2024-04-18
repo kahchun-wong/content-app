@@ -4,7 +4,7 @@
             <p class="ss-content-group-title">{{ group.title }}</p>
             <div v-for="item in group.children" class="ss-content-item">
                 <FaasNuxtLink class="ss-content-item-link" :to="item._path" @click="selected">
-                    <Icon class="ss-content-item-icon" :name="item.icon ?? 'solar:document-text-bold'" />
+                    <Icon class="ss-content-item-icon" :name="item.icon ?? 'mdi:file-document-outline'" />
                     <span class="ss-content-item-title">{{ item.title }}</span>
                     <span class="ss-content-item-description">{{ item.description }}</span>
                 </FaasNuxtLink>

@@ -12,7 +12,7 @@ export default defineTransformer({
             const match = String(content)?.match(/^---([\s\S]*?)---([\s\S]*)/)
         
             if (match) {
-                return [ `---\n${match[1]}\n---`, match[2] ]
+                return [ `---\n${match[1]}\n---\n\n`, match[2] ]
             }
         
             return [ , content ]
