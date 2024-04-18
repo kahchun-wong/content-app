@@ -19,6 +19,7 @@ export default defineTransformer({
         }
 
         const parseToMarkdownContent = (content: any) => {
+            console.log('parsed: ' + content)
             return markdownTransformer.parse
                 ? markdownTransformer.parse(_id, content, {})
                 : <ParsedContent> { body: content }
@@ -33,6 +34,7 @@ export default defineTransformer({
         const [ frontmatter, yamlContent ] = parseContent(content)
         
         if (!isValidApiYaml(yamlContent)) {
+            console.log("invalid api yaml")
             return parseToMarkdownContent(content)
         }
 
