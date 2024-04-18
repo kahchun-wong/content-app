@@ -1,1 +1,0 @@
-import{v as n}from"./qGVcagb8.js";import{p as i}from"./CeAGV5g_.js";const c=(t,e,p)=>{const o=t.split("/"),r=o.pop()??"";return e.path.split("/").filter(s=>s).map(()=>o.pop()),t=o.join("/"),`${i.join(t,p.path,r)}${n().hash}`};export{c as r};
