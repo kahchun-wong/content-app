@@ -1,9 +1,9 @@
 <template>
     <main class="ss-page ss-api-page">
-        <ContentDoc v-slot="{ doc }">
+        <LazyContentDoc v-slot="{ doc }">
             <article>
                 <slot :doc="doc"></slot>
             </article>
-        </ContentDoc>
+        </LazyContentDoc>
     </main>
 </template>

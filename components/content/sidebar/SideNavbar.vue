@@ -35,24 +35,27 @@
         showHeadings: false
     })
 
+    const nuxtApp = useNuxtApp()
     const route = useRoute()
 
     const mapMenuItem = async (navItem: MenuItem): Promise<MenuItem> => {
-        const { data } = await useAsyncData(navItem.url ?? "", () => queryContent().where({ _path: { $eq: navItem.url } }).findOne())
+        const { data } = await nuxtApp.runWithContext(async() => useAsyncData(navItem.url?? '', () => queryContent().where({ _path: { $eq: navItem.url } }).findOne()))
 
         if ("items" in navItem) {
             return {
                 ...navItem,
                 label: navItem.label?? data.value?.title,
                 icon: navItem.icon?? data.value?.icon,
-                items: navItem.type === 'page' ? navItem.items : navItem.items?.map((navItem) => mapMenuItem(navItem))
+                items: navItem.type === 'page' 
+                    ? navItem.items 
+                    : await Promise.all(navItem.items?.map(async (navItem) => await mapMenuItem(navItem)) ?? [])
             }
         }
 
         return {
             ...navItem,
             label: navItem.label?? data.value?.title,
-            icon: navItem.icon?? data.value?.icon,
+            icon: navItem.icon?? data.value?.icon
         }
     }
     const menuItems = ref(await Promise.all(useSidebarNavigationTree().map(async (navItem) => await mapMenuItem(navItem))))

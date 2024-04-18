@@ -42,15 +42,40 @@
 <script setup lang="ts">
     import type { MenuItem } from 'primevue/menuitem'
 
+    const nuxtApp = useNuxtApp()
+
     const navbar = ref<HTMLElement | undefined>()
     const navbarHeight = computed(() => navbar.value?.clientHeight ?? 0)
-    useNuxtApp().$navbarHeight = navbarHeight
+    nuxtApp.$navbarHeight = navbarHeight
 
     const navbarMenu = ref<HTMLElement | undefined>()
     const navbarMenuActive = ref(false)
 
     const baseURL = useRuntimeConfig().app.baseURL
-    const navigationItems = (useAppConfig().navbar?? []) as MenuItem[]
+
+    const mapMenuItem = async (navItem: MenuItem): Promise<MenuItem> => {
+        const { data } = await nuxtApp.runWithContext(async() => useAsyncData(navItem.url?? '', () => queryContent().where({ _path: { $eq: navItem.url } }).findOne()))
+
+        if ("items" in navItem) {
+            delete navItem.url
+            return {
+                ...navItem,
+                label: navItem.label?? data.value?.title,
+                icon: navItem.icon?? data.value?.icon,
+                description: navItem.description?? data.value?.description,
+                items: await Promise.all(navItem.items?.map(async (navItem) => await mapMenuItem(navItem)) ?? [])
+            }
+        }
+
+        return {
+            ...navItem,
+            label: navItem.label?? data.value?.title,
+            icon: navItem.icon?? data.value?.icon,
+            description: navItem.description?? data.value?.description
+        }
+    }
+    const navigationItems = ref(await Promise.all((useAppConfig().navbar?? []).map(async (navItem) => await mapMenuItem(navItem))))
+    console.log(navigationItems.value)
 
     const atTop = ref(true)
     const checkScrollPositionAtTop = () => {

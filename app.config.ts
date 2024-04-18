@@ -3,38 +3,14 @@ export default defineAppConfig({
      * Navbar menu items
      */
     navbar: [
+        { url: '/guides' },
+        { url: '/reference' },
         {
-            icon: 'material-symbols:developer-guide-outline-rounded',
-            label: 'Guides',
-            url: '/guides'
-        },
-        {
-            icon: 'material-symbols:code-rounded',
-            label: 'API Reference',
-            url: '/reference'
-        },
-        {
-            icon: 'ic:outline-question-answer',
-            label: 'Support',
+            url: '/support',
             items: [
-                {
-                    icon: 'material-symbols:support-agent-rounded',
-                    label: 'Contact Us',
-                    description: 'Talk to us, we would love to hear from you',
-                    url: '/support/contact-us'
-                },
-                {
-                    icon: 'icon-park-outline:personal-privacy',
-                    label: 'Privacy policy',
-                    description: 'Learn more about our privacy policy',
-                    url: '/support/privacy-policy'
-                },
-                {
-                    icon: 'icon-park-outline:agreement',
-                    label: 'Terms of Service',
-                    description: 'Learn more about our terms of service',
-                    url: '/support/terms-of-service'
-                }
+                { url: '/support/contact-us' },
+                { url: '/support/privacy-policy' },
+                { url: '/support/terms-of-service' }
             ]
         }
     ],
@@ -43,11 +19,22 @@ export default defineAppConfig({
      */
     sidebar: {
         // Fasstap
+        '/guides': [
+            { 
+                icon: 'material-symbols:phone-android-outline', 
+                label: 'Fasstap™', 
+                url: '/guides/fasstap/introduction/${version.fasstap}/overview'
+            }
+        ],
         '/guides/fasstap/': [
             { url: '/guides/fasstap/introduction/${version.fasstap}/overview' }
         ],
         '/reference': [
-            { icon: 'material-symbols:phone-android-outline', label: 'Fasstap™', url: '/reference/fasstap/${version.fasstap}/sdk-api' }
+            { 
+                icon: 'material-symbols:phone-android-outline', 
+                label: 'Fasstap™', 
+                url: '/reference/fasstap/${version.fasstap}/sdk-api' 
+            }
         ],
         '/reference/fasstap': [
             { url: '/reference/fasstap/${version.fasstap}/sdk-api' },
