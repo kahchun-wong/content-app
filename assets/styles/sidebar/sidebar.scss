@@ -1,5 +1,10 @@
 .ss-sidebar {
     display: none;
+
+    &:has(+ .ss-page > .ss-empty),
+    &:has(+ .ss-page > .ss-not-found) {
+        display: none;
+    }
 }
 
 @media (min-width: 1024px) {

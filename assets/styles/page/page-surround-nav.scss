@@ -39,10 +39,12 @@
 
 .ss-page-surround-nav-left {
     text-align: left;
+    grid-column: 1;
 }
 
 .ss-page-surround-nav-right {
     text-align: right;
+    grid-column: 2;
 }
 
 .ss-page-surround-nav-icon {

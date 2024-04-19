@@ -5,7 +5,7 @@
         <PanelMenu class="ss-sidebar-menu" :model="menuItems" :multiple="true" v-model:expandedKeys="expandedKeys">
             <template #item="{ item, root, active, hasSubmenu }">
                 <FaasNuxtLink 
-                    v-if="item.type !== 'heading' || (item.type === 'heading' && showHeadings)"
+                    v-if="!_.isEmpty(item)"
                     :class="{ 
                         'ss-navbar-menuitem-link p-menuitem-link': !root, 
                         'p-panelmenu-header-action': root, 
@@ -30,8 +30,9 @@
 <script setup lang="ts">
     import type { MenuItem } from 'primevue/menuitem'
     import type { SideNavbarProps } from './types/SideNavbar'
+    import _ from 'lodash'
 
-    withDefaults(defineProps<SideNavbarProps>(), {
+    const props = withDefaults(defineProps<SideNavbarProps>(), {
         showHeadings: false
     })
 
@@ -39,7 +40,9 @@
     const route = useRoute()
 
     const mapMenuItem = async (navItem: MenuItem): Promise<MenuItem> => {
-        const { data } = await nuxtApp.runWithContext(async() => useAsyncData(navItem.url?? '', () => queryContent().where({ _path: { $eq: navItem.url } }).findOne()))
+        const { data } = await nuxtApp.runWithContext(() => useAsyncData('sidebar' + navItem.url, () => queryContent().where({ _path: { $eq: navItem.url } }).findOne()))
+
+        if (!data.value) { return {} }
 
         if ("items" in navItem) {
             return {
@@ -47,7 +50,7 @@
                 label: navItem.label?? data.value?.title,
                 icon: navItem.icon?? data.value?.icon,
                 items: navItem.type === 'page' 
-                    ? navItem.items 
+                    ? props.showHeadings ? navItem.items : undefined
                     : await Promise.all(navItem.items?.map(async (navItem) => await mapMenuItem(navItem)) ?? [])
             }
         }
@@ -83,9 +86,7 @@
         threshold: 0.5
     })
 
-    onMounted(() => {
-        expandAll()
-        
+    const setupObserver = () => {
         observer.value = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 const id = entry.target.getAttribute('id')
@@ -100,10 +101,15 @@
                 }
             })
         }, observerOptions)
-
+        
         document
             .querySelectorAll('.ss-page h2[id], .ss-page h3[id], .ss-page h4[id], .ss-page h5[id], .ss-page h6[id]')
             .forEach((section) => observer.value?.observe(section))
+    }
+
+    onMounted(() => {
+        expandAll()
+        setupObserver()
     })
 
     onUnmounted(() => {

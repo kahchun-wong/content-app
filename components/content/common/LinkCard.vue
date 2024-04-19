@@ -23,7 +23,7 @@
 
     const props = defineProps<LinkCardProps>()
 
-    const { data } = await useAsyncData(props.link, () => queryContent().where({ _path: { $eq: props.link } }).findOne())
+    const { data } = await useAsyncData('link-card' + props.link, () => queryContent().where({ _path: { $eq: props.link } }).findOne())
     const icon = props.icon?? data.value?.icon
     const title = props.title?? data.value?.title
     const description = props.description?? data.value?.description

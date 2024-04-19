@@ -21,7 +21,7 @@
     let path = ''
     for (const segment of pathSegments) {
         path += `/${segment}`
-        const { data } = await useAsyncData(path, () => queryContent().where({ _path: { $eq: path } }).findOne())
+        const { data } = await useAsyncData('page-header' + path, () => queryContent().where({ _path: { $eq: path } }).findOne())
 
         if (data.value?._path) {
             items.push({

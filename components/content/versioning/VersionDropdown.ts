@@ -13,11 +13,23 @@ export default defineComponent({
         },
     },
     setup(props) {
+        const app = useNuxtApp()
         const product = props.product
-        const versions = useVersionDropdown(product)
+        const versions = app.$versioning.useVersionDropdown(product)
 
-        function changeVersion(event: DropdownChangeEvent) {
-            useRouter().push(event.value.value)
+        async function changeVersion(event: DropdownChangeEvent) {
+            let selectedPath = event.value.value
+
+            if (useRoute().fullPath != selectedPath) {
+                const { data } = await useAsyncData('version' + selectedPath, () => queryContent().where({ _path: { $eq: selectedPath } }).findOne())
+
+                if (!data.value) { 
+                    const parentPath = selectedPath.split("/").slice(0, -1).join("/")
+                    const { data } = await useAsyncData('version' + parentPath, () => queryContent(parentPath).find())
+                    if (data.value?.length) { selectedPath = data.value[0]._path }
+                }
+                useRouter().push({ path: selectedPath })
+            }
         }
 
         return () => 

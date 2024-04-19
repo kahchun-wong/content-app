@@ -26,13 +26,14 @@ const resolveSidebar = (sidebarConfig: SidebarNavigationConfig) => {
 }
 
 const resolveSidebarItems = (sidebarNavigationItems: NavigationItem[]) => {
+    const app = useNuxtApp()
     const { toc } = useContent()
 
     const resolveChildItem = (item: NavigationItem, key: string): MenuItem => {
         const childItem: NavigationItem = _.isEmpty(item.items)
             ? {
                 ...item,
-                url: useVersionedLink(item.url ?? "")
+                url: app.$versioning.useVersionedLink(item.url ?? "")
             }
             : item
 
@@ -49,12 +50,12 @@ const resolveSidebarItems = (sidebarNavigationItems: NavigationItem[]) => {
             type: "page",
             key: key,
             ...childItem,
-            items: childItem.url === useRoute().path
+            items: childItem.url === useRoute().path && toc.value
                 ? resolvePageHeaders(
                     toc.value.links[0]?.depth === 1
                         ? toc.value.links[0].children
                         : toc.value.links, key)
-                : []
+                : undefined
         }
     }
     
@@ -64,7 +65,7 @@ const resolveSidebarItems = (sidebarNavigationItems: NavigationItem[]) => {
 const resolvePageHeaders = (headers: TocLink[], key: string, headerDepth: number = 2) => {
     return headerDepth > 0 
         ? headers.map((header, index) => resolvePageHeader(header, `${key}_${index}`, headerDepth - 1)) 
-        : []
+        : undefined
 }
 
 const resolvePageHeader = (header: TocLink, key: string, headerDepth: number): MenuItem => {

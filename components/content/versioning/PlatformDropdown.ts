@@ -13,12 +13,23 @@ export default defineComponent({
         },
     },
     setup(props) {
+        const app = useNuxtApp()
         const product = props.product
-        const platforms = usePlatformDropdown(product)
+        const platforms = app.$versioning.usePlatformDropdown(product)
 
-        function changePlatform(event: DropdownChangeEvent) {
-            if (useRoute().fullPath != event.value.value)
-                useRouter().replace({ path: event.value.value }) 
+        async function changePlatform(event: DropdownChangeEvent) {
+            let selectedPath = event.value.value
+
+            if (useRoute().fullPath != selectedPath) {
+                const { data } = await useAsyncData('platform' + selectedPath, () => queryContent().where({ _path: { $eq: selectedPath } }).findOne())
+
+                if (!data.value) { 
+                    const parentPath = selectedPath.split("/").slice(0, -1).join("/")
+                    const { data } = await useAsyncData('platform' + parentPath, () => queryContent(parentPath).find())
+                    if (data.value?.length) { selectedPath = data.value[0]._path }
+                }
+                useRouter().push({ path: selectedPath })
+            }
         }
 
         return () => 

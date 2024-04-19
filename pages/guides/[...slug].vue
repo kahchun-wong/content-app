@@ -1,4 +1,5 @@
 <template>
+    <SideNavbar />
     <DocsPage v-slot="{ doc }">
         <PageHeader/>
         <PageBody>

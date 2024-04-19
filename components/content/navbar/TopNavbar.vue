@@ -52,16 +52,16 @@
     const baseURL = useRuntimeConfig().app.baseURL
 
     const mapMenuItem = async (navItem: MenuItem): Promise<MenuItem> => {
-        const { data } = await nuxtApp.runWithContext(async() => useAsyncData(navItem.url?? '', () => queryContent().where({ _path: { $eq: navItem.url } }).findOne()))
+        const { data } = await nuxtApp.runWithContext(async() => useAsyncData('navbar' + navItem.url, () => queryContent().where({ _path: { $eq: navItem.url } }).findOne()))
 
         if ("items" in navItem) {
-            delete navItem.url
+            const { url, ...groupNavItem } = navItem
             return {
-                ...navItem,
-                label: navItem.label?? data.value?.title,
-                icon: navItem.icon?? data.value?.icon,
-                description: navItem.description?? data.value?.description,
-                items: await Promise.all(navItem.items?.map(async (navItem) => await mapMenuItem(navItem)) ?? [])
+                ...groupNavItem,
+                label: groupNavItem.label?? data.value?.title,
+                icon: groupNavItem.icon?? data.value?.icon,
+                description: groupNavItem.description?? data.value?.description,
+                items: await Promise.all(groupNavItem.items?.map(async (navItem) => await mapMenuItem(navItem)) ?? [])
             }
         }
 
@@ -81,7 +81,6 @@
 
     // @ts-ignore
     watch(() => navbarMenu.value?.mobileActive, (active) => {
-        console.log(active)
         navbarMenuActive.value = active
     })
 

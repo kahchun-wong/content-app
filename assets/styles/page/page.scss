@@ -7,6 +7,17 @@
     .ss-docs-page {
         grid-column: span 6 / span 6;
         padding: 0 2rem;
+
+        &:not(:has(+ .ss-toc)) {
+            grid-column: span 8 / span 8;
+            padding: 0 1rem 0 2rem;
+        }
+
+        &:has(> .ss-empty),
+        &:has(> .ss-not-found) {
+            grid-column: span 10 / span 10;
+            padding: 0 1rem;
+        }
     }
 }
 
@@ -14,5 +25,11 @@
     .ss-api-page {
         grid-column: span 8 / span 8;
         padding: 0 1rem 0 2rem;
+
+        &:has(> .ss-empty),
+        &:has(> .ss-not-found) {
+            grid-column: span 10 / span 10;
+            padding: 0 1rem;
+        }        
     }
 }

@@ -30,7 +30,7 @@
     }
 
     const pageGroup = ref(resolvePageGroup())
-    const versionProduct = ref(page.value.product)
+    const versionProduct = ref(page.value?.product)
 
     watch(() => (route.path), () => {
         pageGroup.value = resolvePageGroup()

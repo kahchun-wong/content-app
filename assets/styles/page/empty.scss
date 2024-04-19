@@ -1,0 +1,55 @@
+.ss-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+    height: calc(100% - var(--navbar-height));
+    line-height: normal;
+}
+
+.ss-empty-title {
+    font-size: 7rem;
+    font-weight: 800;
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .ss-empty-title {
+        font-size: 10rem;
+    }
+}
+
+.ss-empty-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .ss-empty-subtitle {
+        font-size: 2rem;
+    }
+}
+
+.ss-empty-description {
+    font-size: 1rem;
+    color: var(--text-color-secondary);
+    text-align: center;
+}
+
+@media (min-width: 1024px) {
+    .ss-empty-description {
+        font-size: 1.25rem;
+    }
+}
+
+.ss-empty-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}

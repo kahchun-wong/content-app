@@ -27,7 +27,8 @@ export default defineAppConfig({
             }
         ],
         '/guides/fasstap/': [
-            { url: '/guides/fasstap/introduction/${version.fasstap}/overview' }
+            { url: '/guides/fasstap/introduction/${version.fasstap}/overview' },
+            { url: '/guides/fasstap/introduction/${version.fasstap}/other' }
         ],
         '/reference': [
             { 
@@ -66,6 +67,10 @@ export default defineAppConfig({
                         {
                             version: 'v3.5.0.4',
                             path: '/android/latest/'
+                        },
+                        {
+                            version: 'v0.0.1',
+                            path: '/android/v0.0.1/'
                         }
                     ]
                 },

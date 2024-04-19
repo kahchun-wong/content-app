@@ -1,5 +1,3 @@
-import type VersionManager from "../useVersionManager"
-
 /**
  * Defines valid properties of product version object
  */
