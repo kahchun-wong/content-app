@@ -40,15 +40,16 @@
     const route = useRoute()
 
     const mapMenuItem = async (navItem: MenuItem): Promise<MenuItem> => {
-        const { data } = await nuxtApp.runWithContext(() => useAsyncData('sidebar' + navItem.url, () => queryContent().where({ _path: { $eq: navItem.url } }).findOne()))
+        const { data } = await nuxtApp.runWithContext(() => useAsyncData('sidebar' + navItem.url, () => queryContent().where({ _path: { $eq: navItem.url } }).find()))
+        const [result, ] = data.value?? []
 
-        if (!data.value) { return {} }
+        if (_.isEmpty(result)) { return {} }
 
         if ("items" in navItem) {
             return {
                 ...navItem,
-                label: navItem.label?? data.value?.title,
-                icon: navItem.icon?? data.value?.icon,
+                label: navItem.label?? result?.title,
+                icon: navItem.icon?? result?.icon,
                 items: navItem.type === 'page' 
                     ? props.showHeadings ? navItem.items : undefined
                     : await Promise.all(navItem.items?.map(async (navItem) => await mapMenuItem(navItem)) ?? [])
@@ -57,8 +58,8 @@
 
         return {
             ...navItem,
-            label: navItem.label?? data.value?.title,
-            icon: navItem.icon?? data.value?.icon
+            label: navItem.label?? result?.title,
+            icon: navItem.icon?? result?.icon
         }
     }
     const menuItems = ref(await Promise.all(useSidebarNavigationTree().map(async (navItem) => await mapMenuItem(navItem))))

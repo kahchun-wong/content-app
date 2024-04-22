@@ -11,6 +11,7 @@
 
 <script setup lang="ts">
     import type { MenuItem } from 'primevue/menuitem'
+    import _ from 'lodash'
 
     const home = { icon: 'prime:home', url: useRuntimeConfig().app.baseURL }
 
@@ -21,12 +22,13 @@
     let path = ''
     for (const segment of pathSegments) {
         path += `/${segment}`
-        const { data } = await useAsyncData('page-header' + path, () => queryContent().where({ _path: { $eq: path } }).findOne())
+        const { data } = await useAsyncData('page-header' + path, () => queryContent().where({ _path: { $eq: path } }).find())
 
-        if (data.value?._path) {
+        if (!_.isEmpty(data.value)) {
+            const [result, ] = data.value?? []
             items.push({
-                label: data.value?.title,
-                url: data.value?._path
+                label: result.title,
+                url: result._path
             })
         }
     }
