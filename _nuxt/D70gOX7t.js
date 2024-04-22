@@ -1,0 +1,1 @@
+import{f as a}from"./BneCoJRQ.js";import{U as n,l as o,b as l,c as f}from"./BVDKrSY_.js";const d=(c,e,t,...r)=>c[e]?n({...c,[e]:()=>a(c[e](),t==null?void 0:t.unwrap)},e,t,...r):n(c,e,t,...r),i={},_={class:"ss-card-collection"};function s(c,e){return l(),f("div",_,[d(c.$slots,"default")])}const k=o(i,[["render",s]]);export{k as default};
