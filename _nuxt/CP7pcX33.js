@@ -1,1 +1,0 @@
-import o from"./C4pjNWz8.js";import{d as s,b as a,D as p,n}from"./BbR-A2cp.js";const m=s({__name:"HttpMethodTag",props:{httpMethod:{}},setup(r){return(t,c)=>{const e=o;return a(),p(e,{class:n(["ss-http-method-tag",t.httpMethod]),value:t.httpMethod,severity:"secondary"},null,8,["class","value"])}}});export{m as _};
