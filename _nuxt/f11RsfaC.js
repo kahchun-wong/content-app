@@ -1,1 +1,0 @@
-import o from"./5mZote7_.js";import{d as s,b as a,H as p,n}from"./TvbOaoXS.js";const m=s({__name:"HttpMethodTag",props:{httpMethod:{}},setup(r){return(t,c)=>{const e=o;return a(),p(e,{class:n(["ss-http-method-tag",t.httpMethod]),value:t.httpMethod,severity:"secondary"},null,8,["class","value"])}}});export{m as _};
