@@ -7,6 +7,7 @@
         </PageBody>
         <PageSurroundNav />
     </DocsPage>
+    <PageToc />
 </template>
 
 <script setup lang="ts">
