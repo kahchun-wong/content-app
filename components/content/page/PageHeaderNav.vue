@@ -13,7 +13,7 @@
     import type { MenuItem } from 'primevue/menuitem'
     import _ from 'lodash'
 
-    const home = { icon: 'prime:home', url: useRuntimeConfig().app.baseURL }
+    const home = { icon: 'mingcute:home-3-line', url: useRuntimeConfig().app.baseURL }
 
     const pagePath = useContent().page.value?._path
     const pathSegments = pagePath.split('/').filter(Boolean)

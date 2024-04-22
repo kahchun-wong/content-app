@@ -1,8 +1,8 @@
 <template>
     <div v-if="pageGroup" class="ss-sidebar-page-group">
         <FaasNuxtLink v-if="pageGroup.home" class="ss-sidebar-page-group-home" :to="pageGroup.home">
-            <Icon name="prime:chevron-left" />
-            <span>Back to home</span>
+            <Icon name="material-symbols-light:arrow-left-alt-rounded" />
+            <span>Back</span>
         </FaasNuxtLink>
   
         <div v-if="pageGroup.title" class="ss-sidebar-page-group-title">

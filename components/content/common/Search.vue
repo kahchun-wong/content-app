@@ -14,7 +14,7 @@
                 <InputText v-model="search" placeholder="Search..." autofocus></InputText>
             </div>
         </template>
-        <GroupedContentList v-if="search.length == 0" :contents="navigation" @selected="closeSearchDialog" />
+        <GroupedContentList v-if="search.length == 0" :contents="navigation" @selected="closeSearchDialog" :depth="1" />
         <SearchResults v-else :model="results" @selected="closeSearchDialog" />      
     </Dialog>
 </template>

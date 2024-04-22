@@ -1,6 +1,6 @@
 <template>
     <div v-if="resultContents?.length" class="ss-search-results">
-        <GroupedContentList :contents="resultContents" @selected="$emit('selected')" />
+        <GroupedContentList :contents="resultContents" @selected="$emit('selected')" :depth="false" />
     </div>
     <div v-else class="ss-search-not-found">
         <Icon class="ss-search-not-found-icon" name="material-symbols:sad-tab" />
